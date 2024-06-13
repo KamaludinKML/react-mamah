@@ -16,16 +16,16 @@ class Menu extends Component {
           </label>
           <ul className="menu">
             <li>
-              <Link to="/">Home</Link> 
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/dataproduk">Produk</Link>
             </li>
             <li>
-              <Link to="/datakaryawan">Karyawan</Link>
+              <Link to="/datatransaksi">Transaksi</Link>
             </li>
             <li>
-              <Link to="/datatransaksi">Transaksi</Link>
+              <Link to="/datakaryawan">Karyawan</Link>
             </li>
             <li>
               <Link to="/datauser">User</Link>
