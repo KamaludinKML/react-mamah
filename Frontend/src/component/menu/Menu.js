@@ -30,6 +30,9 @@ class Menu extends Component {
             <li>
               <Link to="/datauser">User</Link>
             </li>
+            <li>
+              <Link to="/datatrainer">trainer</Link>
+            </li>
           </ul>
         </header>
       </div>
