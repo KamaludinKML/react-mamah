@@ -22,7 +22,16 @@ class Menu extends Component {
               <Link to="/datamahasiswa">Mahasiswa</Link>
             </li>
             <li>
-              <Link to="/datatrainer">Trainer List</Link>
+              <Link to="/dataproduk">Produk</Link>
+            </li>
+            <li>
+              <Link to="/datakaryawan">Karyawan</Link>
+            </li>
+            <li>
+              <Link to="/datatransaksi">Transaksi</Link>
+            </li>
+            <li>
+              <Link to="/datauser">User</Link>
             </li>
           </ul>
         </header>
