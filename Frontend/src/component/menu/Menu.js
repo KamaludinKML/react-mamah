@@ -8,7 +8,7 @@ class Menu extends Component {
       <div>
         <header className="header ">
           <a href="https://www.akscoding.com" className="logo">
-            My Home U Niklon
+            <b>My Mamalia-React</b>
           </a>
           <input className="menu-btn" type="checkbox" id="menu-btn" />
           <label className="menu-icon" for="menu-btn">
@@ -17,9 +17,6 @@ class Menu extends Component {
           <ul className="menu">
             <li>
               <Link to="/">Home</Link> 
-            </li>
-            <li>
-              <Link to="/datamahasiswa">Mahasiswa</Link>
             </li>
             <li>
               <Link to="/dataproduk">Produk</Link>
