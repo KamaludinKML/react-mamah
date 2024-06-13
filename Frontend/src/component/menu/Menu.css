@@ -2,6 +2,9 @@
 body {
   background-color: #636363;
 }
+b {
+  color: aliceblue;
+}
 
 .header {
   background-color: #212121;
