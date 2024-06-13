@@ -9,11 +9,11 @@ function KaryawanDelete() {
   // Define state
   const [karyawan, setKaryawan] = useState({
     id: "",
-    nama: "",
-    email: "",
-    password: "",
-    nohp: "",
-    status: "",
+    nama_karyawan: "",
+    tgl_lahir: "",
+    jenis_kelamin: "",
+    alamat: "",
+    noTlp: "",
   });
 
   //useEffect hook

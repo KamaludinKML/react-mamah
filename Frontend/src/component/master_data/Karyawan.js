@@ -40,7 +40,7 @@ function DataKaryawan() {
     },
     {
         name: "tgl_lahir",
-        selector: (row) => row.tgl_lahir,
+        selector: (row) => new Date(row.tgl_lahir).toLocaleDateString(),
         sortable: true,
     },
     {
