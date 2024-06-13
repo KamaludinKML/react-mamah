@@ -49,9 +49,9 @@ function DataTransaksi() {
         sortable: true,
     },
     {
-        name: "Tanggal",
-        selector: (row) => row.tanggal,
-        sortable: true,
+      name: "Tanggal",
+      selector: (row) => new Date(row.tanggal).toLocaleDateString(),
+      sortable: true,
     },
     {
         name: "Harga Total",
