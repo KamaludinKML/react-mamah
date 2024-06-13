@@ -19,7 +19,7 @@ function DataTransaksi() {
   //function "fetchData"
   const fectData = async () => {
     //fetching
-    const response = await axios.get("https://localhost:7278/api/Transaksi");
+    const response = await axios.get("https://localhost:7092/Transaksi/GetAllTransaksi");
     //get response data
     const data = await response.data;
     //assign response data to state "datamahasiswa"
@@ -39,6 +39,11 @@ function DataTransaksi() {
       sortable: true,
     },
     {
+      name: "Nama Produk",
+      selector: (row) => row.namaproduk,
+      sortable: true,
+    },
+    {
         name: "Quantity",
         selector: (row) => row.quantity,
         sortable: true,
@@ -55,20 +60,13 @@ function DataTransaksi() {
     },
     {
         name: "ID Karyawan",
-        selector: (row) => row.idkaryawan,
+        selector: (row) => row.id_karyawan,
         sortable: true,
     },
     {
-      name: 'Ubah',
-      selector: row => <Link to={"/datatransaksi_edit/"+row.id}
-      className="btn btn-primary">Edit</Link>,
-      sortable: true
-    },
-    {
-      name: 'Hapus',
-      selector: row => <Link to={"/datatransaksi_delete/"+row.id}
-      className="btn btn-danger">Delete</Link>,
-      sortable: true
+        name: "Nama Karyawan",
+        selector: (row) => row.nama_karyawan,
+        sortable: true,
     },
   ];
   return (
