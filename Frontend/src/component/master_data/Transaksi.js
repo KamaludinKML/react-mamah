@@ -34,11 +34,6 @@ function DataTransaksi() {
       sortable: true,
     },
     {
-      name: "ID Produk",
-      selector: (row) => row.idproduk,
-      sortable: true,
-    },
-    {
       name: "Nama Produk",
       selector: (row) => row.namaproduk,
       sortable: true,
@@ -56,11 +51,6 @@ function DataTransaksi() {
     {
         name: "Harga Total",
         selector: (row) => row.hargatotal,
-        sortable: true,
-    },
-    {
-        name: "ID Karyawan",
-        selector: (row) => row.id_karyawan,
         sortable: true,
     },
     {

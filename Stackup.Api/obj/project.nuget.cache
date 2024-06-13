@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dHDW3e/BYUl1H5p/IqvUsGofcSTcJUgGz0spRXpzhfqOQyIIukNHQORjMoD56erq+YmS26TX7BifA+IVuFW6lw==",
+  "dgSpecHash": "0X0F/eIAsxsYfjwQyOiRCroJo61j8E+gKyDK18GmNfp5QGVwkQ9Gne394PtDL+OaLnmf8Wsnb0MIwCe2GPtDKQ==",
   "success": true,
-  "projectFilePath": "D:\\BELAJAR REACT UTS\\New folder\\react-mamah\\Stackup.Api\\Stackup.Api.csproj",
+  "projectFilePath": "D:\\BELAJAR REACT UTS\\budi-react\\react-mamah\\Stackup.Api\\Stackup.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
