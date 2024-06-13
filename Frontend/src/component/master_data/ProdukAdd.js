@@ -4,7 +4,6 @@ import React from "react";
 
 function ProdukAdd() {
   const [formValue, setformValue] = React.useState({
-    id: "",
     namaproduk: "",
     stock: "",
     hargasatuan: "",
@@ -18,25 +17,24 @@ function ProdukAdd() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Mencegah pengiriman form secara default
 
-    // store the states in the form data
+    // simpan state ke dalam form data
     const formData = {
-      id: formValue.id,
       namaproduk: formValue.namaproduk,
       stock: formValue.stock,
       hargasatuan: formValue.hargasatuan,
     };
 
     try {
-      // make axios post request
+      // membuat permintaan post dengan axios
       const response = await axios.post(
         "https://localhost:7092/Produk/CreateProduk",
         formData,
         { headers: { "Content-Type": "application/json" } }
       );
       alert("Data berhasil disimpan");
-      window.location.href = "/dataproduk"; // Redirect after successful response
+      window.location.href = "/dataproduk"; // Redirect setelah response berhasil
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -50,15 +48,6 @@ function ProdukAdd() {
         <div className="Titel">Tambah Data Produk</div>
         <div className="conten">
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="id"
-              placeholder="Masukkan Id"
-              value={formValue.id}
-              onChange={handleChange}
-            />
-            <br />
-            <br />
             <input
               type="text"
               name="namaproduk"
