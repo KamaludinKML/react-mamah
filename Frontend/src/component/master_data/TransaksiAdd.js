@@ -7,7 +7,6 @@ function TransaksiAdd() {
     idproduk: "",
     quantity: "",
     tanggal: "",
-    hargatotal: "",
     id_karyawan: "",
   });
 
@@ -24,7 +23,6 @@ function TransaksiAdd() {
     FormDataInput.append("idproduk", formValue.idproduk);
     FormDataInput.append("quantity", formValue.quantity);
     FormDataInput.append("tanggal", formValue.tanggal);
-    FormDataInput.append("hargatotal", formValue.hargatotal);
     FormDataInput.append("id_karyawan", formValue.id_karyawan);
 
     alert("Data berhasil disimpan");
@@ -73,15 +71,6 @@ function TransaksiAdd() {
               name="tanggal"
               placeholder="enter Tanggal"
               value={formValue.tanggal}
-              onChange={handleChange}
-            />
-            <br />
-            <br />
-            <input
-              type="text"
-              name="hargatotal"
-              placeholder="enter Hargatotal"
-              value={formValue.hargatotal}
               onChange={handleChange}
             />
             <br />

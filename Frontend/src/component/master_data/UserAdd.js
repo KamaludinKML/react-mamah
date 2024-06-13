@@ -33,6 +33,7 @@ function UserAdd() {
         data: FormDataInput,
         headers: { "Content-Type": "application/json" },
       });
+      window.location.href = "/datauser"
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -49,7 +50,7 @@ function UserAdd() {
             <input
               type="text"
               name="id"
-              placeholder="Masukkan Id"
+              placeholder="Masukkan ID"
               value={formValue.id}
               onChange={handleChange}
             />
@@ -76,7 +77,7 @@ function UserAdd() {
             <input
               type="text"
               name="role"
-              placeholder="Masukkan Harga Satuan"
+              placeholder="Masukkan Role"
               value={formValue.role}
               onChange={handleChange}
             />

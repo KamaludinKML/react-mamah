@@ -453,14 +453,24 @@ public class DbManager
         }
         return transaksiList;
     }
-    public int CreateTransaksi(Transaksi transaksi)
+   public int CreateTransaksi(Transaksi transaksi)
     {
         using (MySqlConnection connection = _connection)
         {
-            string query = "INSERT INTO datatransaksi (id, idproduk, quantity, tanggal, hargatotal, id_karyawan) VALUES (@Id, @Idproduk, @Quantity, @Tanggal, @Hargatotal, @Id_karyawan)";
+            string queryGetHargaSatuan = "SELECT hargasatuan FROM dataproduk WHERE id = @Idproduk";
+            MySqlCommand commandGetHargaSatuan = new MySqlCommand(queryGetHargaSatuan, connection);
+            commandGetHargaSatuan.Parameters.AddWithValue("@Idproduk", transaksi.idproduk);
+
+            connection.Open();
+            int hargasatuan = Convert.ToInt32(commandGetHargaSatuan.ExecuteScalar());
+            connection.Close();
+
+            // Kemudian, hitung hargatotal
+            transaksi.hargatotal = transaksi.quantity * hargasatuan;
+            string query = "INSERT INTO datatransaksi (idproduk, quantity, tanggal, hargatotal, id_karyawan) " +
+                           "VALUES (@Idproduk, @Quantity, @Tanggal, @Hargatotal, @Id_karyawan)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@Id", transaksi.id);
                 command.Parameters.AddWithValue("@Idproduk", transaksi.idproduk);
                 command.Parameters.AddWithValue("@Quantity", transaksi.quantity);
                 command.Parameters.AddWithValue("@Tanggal", transaksi.tanggal);
@@ -468,7 +478,21 @@ public class DbManager
                 command.Parameters.AddWithValue("@Id_karyawan", transaksi.id_karyawan);
 
                 connection.Open();
-                return command.ExecuteNonQuery();
+                int result = command.ExecuteNonQuery();
+                connection.Close();
+
+                // Kurangi stok di tabel Dataproduk
+                string queryUpdateStok = "UPDATE dataproduk SET stock = stock - @Quantity WHERE id = @Idproduk";
+                using (MySqlCommand commandUpdateStok = new MySqlCommand(queryUpdateStok, connection))
+                {
+                    commandUpdateStok.Parameters.AddWithValue("@Idproduk", transaksi.idproduk);
+                    commandUpdateStok.Parameters.AddWithValue("@Quantity", transaksi.quantity);
+
+                    connection.Open();
+                    commandUpdateStok.ExecuteNonQuery();
+                }
+
+                return result;
             }
         }
     }

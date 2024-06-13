@@ -48,6 +48,24 @@ function DataUser() {
         selector: (row) => row.role,
         sortable: true,
     },
+    {
+      name: "Ubah",
+      selector: (row) => (
+        <Link to={"/datauser_edit/" + row.id} className="btn btn-primary">
+          Edit
+        </Link>
+      ),
+      sortable: true,
+    },
+    {
+      name: "Hapus",
+      selector: (row) => (
+        <Link to={"/datauser_delete/" + row.id} className="btn btn-danger">
+          Delete
+        </Link>
+      ),
+      sortable: true,
+    },
   ];
   return (
     <div className="card">
