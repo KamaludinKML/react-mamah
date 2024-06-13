@@ -4,7 +4,6 @@ import React from "react";
 
 function TransaksiAdd() {
   const [formValue, setformValue] = React.useState({
-    id:"",
     idproduk: "",
     quantity: "",
     tanggal: "",
@@ -22,7 +21,6 @@ function TransaksiAdd() {
   const handleSubmit = async () => {
     // store the states in the form data
     const FormDataInput = new FormData();
-    FormDataInput.append("id", formValue.id);
     FormDataInput.append("idproduk", formValue.idproduk);
     FormDataInput.append("quantity", formValue.quantity);
     FormDataInput.append("tanggal", formValue.tanggal);
@@ -38,6 +36,7 @@ function TransaksiAdd() {
         data: FormDataInput,
         headers: { "Content-Type": "application/json" },
       });
+      window.location.href = "/datatransaksi"
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -51,15 +50,6 @@ function TransaksiAdd() {
         <div className="Titel">Tambah Data Transaksi</div>
         <div className="conten">
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="id"
-              placeholder="enter Id"
-              value={formValue.id}
-              onChange={handleChange}
-            />
-            <br />
-            <br />
             <input
               type="text"
               name="idproduk"
@@ -79,7 +69,7 @@ function TransaksiAdd() {
             <br />
             <br />
             <input
-              type="text"
+              type="date"
               name="tanggal"
               placeholder="enter Tanggal"
               value={formValue.tanggal}
