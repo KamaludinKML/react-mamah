@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Menu from "./component/menu/Menu";
+import Home from "./component/home/Home";
+import Profile from "./component/profile/Profile";
+import Contact from "./component/contact/Contact";
+import Documentation from "./component/documentation/Documentation";
+import UserList from "./views/UserList";
+import DataMahasiswa from "./component/master_data/Mahasiswa";
+import DataMahasiswaAdd from './component/master_data/MahasiswaAdd'
+import DataMahasiswaEdit from './component/master_data/MahasiswaEdit'
+import DataMahasiswaDelete from './component/master_data/MahasiswaDelete'
+
+import DataTrainer from "./component/master_data/Trainer";
+import DataTrainerAdd from './component/master_data/TrainerAdd'
+import DataTrainerDelete from './component/master_data/TrainerDelete'
+import DataTrainerEdit from './component/master_data/TrainerEdit'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router basepath="./my-app">
+      <div className="app-header">
+        <Menu />
+      </div>
+      <div className="app-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/documentation" element={<Documentation />} />
+          <Route path="/userlist" element={<UserList />} />
+          <Route path="/datamahasiswa" element={<DataMahasiswa />} />
+          <Route path="/datatrainer" element={<DataTrainer />} />
+          <Route path="/datamahasiswa_add" element={<DataMahasiswaAdd/>} />
+          <Route path="/datamahasiswa_edit/:id" element={<DataMahasiswaEdit/>}/>
+          <Route path="/datamahasiswa_delete/:id"element={<DataMahasiswaDelete/>} />
+          <Route path="/datatrainer_add" element={<DataTrainerAdd/>} />
+          <Route path="/datatrainer_delete/:id"element={<DataTrainerDelete/>} />
+          <Route path="/datatrainer_edit/:id" element={<DataTrainerEdit/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
