@@ -2,10 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Menu from "./component/menu/Menu";
 import Home from "./component/home/Home";
-import Profile from "./component/profile/Profile";
-import Contact from "./component/contact/Contact";
-import Documentation from "./component/documentation/Documentation";
-import UserList from "./views/UserList";
+
 import DataMahasiswa from "./component/master_data/Mahasiswa";
 import DataMahasiswaAdd from './component/master_data/MahasiswaAdd'
 import DataMahasiswaEdit from './component/master_data/MahasiswaEdit'
@@ -27,10 +24,6 @@ function App() {
       <div className="app-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/documentation" element={<Documentation />} />
-          <Route path="/userlist" element={<UserList />} />
           <Route path="/datamahasiswa" element={<DataMahasiswa />} />
           <Route path="/datatrainer" element={<DataTrainer />} />
           <Route path="/datamahasiswa_add" element={<DataMahasiswaAdd/>} />

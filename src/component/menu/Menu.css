@@ -1,6 +1,10 @@
-/*header*/
+/* header */
+body {
+  background-color: #636363;
+}
+
 .header {
-  background-color: #30475e;
+  background-color: #212121;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -13,26 +17,43 @@
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #30475e;
+  background-color: #212121;
 }
 
-div {
-  font-size: 13px;
+.header li {
+  position: relative;
 }
-
-
 
 .header li a {
   display: block;
   padding: 20px 20px;
   text-decoration: none;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: white;
+  position: relative;
+}
+
+.header li a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 10px; /* Adjust this value to move the line closer to the text */
+  left: 0;
+  background-color: blue;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.header li a:hover::before,
+.header li a:focus::before {
+  visibility: visible;
+  width: 100%;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: #222831;
+  background-color: transparent; /* Remove background color */
 }
 
 .header .logo {
@@ -41,19 +62,16 @@ div {
   font-size: 2em;
   padding: 10px 20px;
   text-decoration: none;
-  color: #ffffff;
 }
 
-/*menu*/
-
+/* menu */
 .header .menu {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
 }
 
-/*menu icon*/
-
+/* menu icon */
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
@@ -92,13 +110,12 @@ div {
 }
 
 /* menu btn */
-
 .header .menu-btn {
   display: none;
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 240px;
+  max-width: 240px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -119,7 +136,6 @@ div {
 }
 
 /* 48em = 768px */
-
 @media (min-width: 48em) {
   .header li {
     float: left;
@@ -135,8 +151,4 @@ div {
   .header .menu-icon {
     display: none;
   }
-
- ul li {
-  color: #0670da;
- }
 }
