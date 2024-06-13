@@ -17,26 +17,30 @@ function ProdukAdd() {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
     // store the states in the form data
-    const FormDataInput = new FormData();
-    FormDataInput.append("id", formValue.id);
-    FormDataInput.append("namaproduk", formValue.namaproduk);
-    FormDataInput.append("stock", formValue.stock);
-    FormDataInput.append("hargasatuan", formValue.hargasatuan);
-    alert("Data berhasil disimpan");
+    const formData = {
+      id: formValue.id,
+      namaproduk: formValue.namaproduk,
+      stock: formValue.stock,
+      hargasatuan: formValue.hargasatuan,
+    };
+
     try {
       // make axios post request
-      const response = await axios({
-        method: "post",
-        url: "https://localhost:7092/Produk/CreateProduk",
-        data: FormDataInput,
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        "https://localhost:7092/Produk/CreateProduk",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
+      alert("Data berhasil disimpan");
+      window.location.href = "/dataproduk"; // Redirect after successful response
       console.log(response);
     } catch (error) {
       console.log(error);
-      alert(error);
+      alert("Error menyimpan data: " + error.message);
     }
   };
 
